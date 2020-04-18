@@ -3,13 +3,15 @@
   /* Desktop table */
 .category-table {
   width: 100%;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2),0 0 0 1px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
 
   table {
     font-family: 'Spartan', sans-serif;
     border-radius: 2px;
     width: 100%;
     margin-bottom: 0;
+    border-left: 0; // See tbody>tr>td> border-left
+    border-right: 0; // See tbody>tr>td> border-left
 
     thead {
       th {
@@ -22,6 +24,12 @@
     }
 
     tbody {
+      tr {
+        td {
+          border-left: 1px solid rgb(222, 226, 230); // Weird bug that displays borders outside of the table at 1st td in row.
+        }
+      }
+
       td {
         font-weight: 400;
         font-family: 'Open Sans', sans-serif;
