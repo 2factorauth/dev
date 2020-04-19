@@ -6,14 +6,13 @@ require 'fileutils'
 data_dir = '../_data'
 
 sections = YAML.load_file("#{data_dir}/sections.yml")
-regions_data = YAML.load_file("#{data_dir}/regions.yml")
-regions = regions_data['regions']
+regions = YAML.load_file("#{data_dir}/regions.yml")
 
 # Region loop
 regions.each do |region|
-  puts region
+  puts region['id']
 
-  dest_dir = "/tmp/#{region}"
+  dest_dir = "/tmp/#{region['id']}"
   unless File.exist?(dest_dir)
     Dir.mkdir(dest_dir) unless File.exist?(dest_dir)
     files = Dir.glob('../*').reject { |file| file.end_with?('../.') }
@@ -32,7 +31,7 @@ regions.each do |region|
       if website['regions'].nil?
         section_array.push(website)
       else
-        section_array.push(website) if website['regions'].include?(region.to_s)
+        section_array.push(website) if website['regions'].include?(region['id'].to_s)
       end
 
     end
@@ -45,9 +44,9 @@ regions.each do |region|
 
   end
 
-  out_dir = "#{Dir.pwd}/../#{region}"
-  puts "Building #{region}..."
+  out_dir = "#{Dir.pwd}/../#{region['id']}"
+  puts "Building #{region['id']}..."
   puts `cd #{dest_dir} && bundle exec jekyll build -d #{out_dir} --config _config-regions.yml` # Add -V for debugging
   puts `cd #{out_dir} && rm -R -- */` # Delete Subdirectories
-  puts "#{region} built!"
+  puts "#{region['id']} built!"
 end
