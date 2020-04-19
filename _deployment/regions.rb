@@ -10,7 +10,6 @@ regions = YAML.load_file("#{data_dir}/regions.yml")
 
 # Region loop
 regions.each do |region|
-  puts region['id']
 
   dest_dir = "/tmp/#{region['id']}"
   unless File.exist?(dest_dir)
