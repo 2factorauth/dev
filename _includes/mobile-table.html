@@ -5,10 +5,10 @@
 
     {% for website in site.data[section_id].websites %}
 
-    <div class="col-11 {% if website.tfa %}table-success{%else%}table-danger{%endif%}" style="margin: auto;padding: 18px;border-bottom: 1px groove rgba(34,36,38,.14902)">
+    <div class="col-11 {% if website.tfa %}table-success{%else%}table-danger{%endif%}">
 
         <!-- Title -->
-        <div style="font-size: 18px;line-height: 53px;">
+        <div class="site-title">
             <a class="site-name" href="{{ website.url }}">
                 <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}"
                      src="/img/placeholder.png">
@@ -30,9 +30,9 @@
         </div>
 
         {% if website.doc %}
-        <div class="btn doc-btn col-11 col-sm-8 d-flex justify-content-center" style="background-color: #009fda;margin: 0 auto;">
-            <a href="{{ website.doc }}" style=" font-family: Spartan; color: #fff; text-decoration: none;">
-                <i class="fas fa-book" style="color: #fff !important;"></i>
+        <div class="btn doc-btn col-11 col-sm-8 d-flex justify-content-center website-doc">
+            <a href="{{ website.doc }}">
+                <i class="fas fa-book"></i>
                 Read more
             </a>
         </div>
@@ -40,12 +40,12 @@
 
         {% else %}
 
-        <b class="text-danger" style="text-align: center;display:block">2FA not supported</b>
+        <b class="text-danger">2FA not supported</b>
         <div class="row justify-content-center">
 
             {% if website.twitter %}
 
-            <div class="col ml-md-auto twitter-button social-button btn" style="margin: .2em;max-width: 50%;" title="Tweet them!">
+            <div class="col ml-md-auto twitter-button social-button btn" title="Tweet them!">
                 <i class="fab fa-twitter"></i>
             </div>
 
@@ -53,7 +53,7 @@
 
             {% if website.facebook %}
 
-            <div class="col facebook-button social-button btn" style="margin: auto .2em;max-width: 50%;" title="Contact them!">
+            <div class="col facebook-button social-button btn" title="Contact them!">
                 <i class="fab fa-facebook-f"></i>
             </div>
 
@@ -61,7 +61,7 @@
 
             {% if website.email_address %}
 
-            <div class="col email-button social-button btn" style="margin: auto .2em;max-width: 50%;" title="Email them!">
+            <div class="col email-button social-button btn" title="Email them!">
                 <i class="fas fa-envelope"></i>
             </div>
 
@@ -69,7 +69,6 @@
 
         </div>
         {% endif %}
-
 
     </div>
     {% endfor %}

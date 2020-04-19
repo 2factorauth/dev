@@ -2,7 +2,7 @@
 {% assign section_title = include.title-param %}
 
 <div id="{{section_id}}-table" class="collapse category-table desktop-only">
-    <a id="{{section_id}}" style="width: 100%"></a>
+    <a id="{{section_id}}" class="category-href"></a>
     <table class="table table-hover table-bordered table-bordered">
         <thead class="sticky-top">
             <tr>
@@ -27,7 +27,7 @@
                         <td>
                             <div class="row no-gutters">
                                 <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}" src="/img/placeholder.png">
-                                <a class="site-name" href="{{ website.url }}" {% if website.exception %}style="margin-right: -24px"{% endif %}>{{ website.name }}</a>
+                                <a class="site-name {% if website.exception %}exception-site{% endif %}" href="{{ website.url }}">{{ website.name }}</a>
                                 {% if website.exception %}
                                     <i class="fas fa-exclamation-triangle exception" data-content="{{ website.exception }}"></i>
                                 {% endif %}
@@ -88,23 +88,23 @@
                             </td>
                         {% else %}
 
-                            <td colspan="6" style="text-align: left;">
+                            <td colspan="6">
                                 Tell them to support 2FA!
-                                <div class="social-button-group" style="margin-left: 0.5vw;">
+                                <div class="social-button-group">
                                     {% if website.twitter %}
-                                        <div class="twitter-button social-button btn" style="height:100%;">
+                                        <div class="twitter-button social-button btn">
                                             <i class="fab fa-twitter"></i>
                                             On Twitter
                                         </div>
                                     {% endif %}
                                     {% if website.facebook %}
-                                        <div class="facebook-button social-button btn" style="height:100%;">
+                                        <div class="facebook-button social-button btn">
                                             <i class="fab fa-facebook-f"></i>
                                             On Facebook
                                         </div>
                                     {% endif %}
                                     {% if website.email_address %}
-                                        <div class="email-button social-button btn" style="height:100%;">
+                                        <div class="email-button social-button btn">
                                             <i class="fas fa-envelope"></i>
                                             Via Email</div>
                                     {% endif %}

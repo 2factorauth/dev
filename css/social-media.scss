@@ -1,13 +1,17 @@
 ---
 ---
-.social-button-group {
-  display: inline-block;
-  margin-left: 0.5vw;
+
+@media screen and (min-width: 993px) {
+  .social-button-group {
+    display: inline-block;
+    margin-left: 0.5vw;
+  }
 }
 
 .social-button {
   height: 100%;
   width: 140px;
+  max-width: 50%;
   color: white;
 
   &.twitter-button {
@@ -20,5 +24,11 @@
 
   &.email-button {
     background-color: #ea4235;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .social-button {
+    margin: .2em;
   }
 }

@@ -2,13 +2,14 @@
     <div class="container">
         <ul class="navbar-nav navbar-table ml-auto">
             <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-            <li class="nav-item dropdown"><a style="cursor: pointer" class="nav-link dropdown-toggle" id="regionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="regionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Region <i class="fas fa-globe-africa"></i>
             </a>
                 <div class="dropdown-menu" aria-labelledby="regionDropdown">
                     <a class="dropdown-item" href="/"><i class="fas fa-globe-africa"></i> Global</a>
-                    {% for region in site.data.regions %}
-                    <a class="dropdown-item" href="/{{ region.id }}"><span class="flag-icon flag-icon-{{ region.id }}" alt="{{ region.id }}"></span> {{ region.name }}</a>
+                    {% assign regions = site.data.regions | sort: "name" %}
+                    {% for region in regions %}
+                    <a class="dropdown-item" href="/{{ region.id }}/"><span class="flag-icon flag-icon-{{ region.id }}"></span> {{ region.name }}</a>
                     {% endfor %}
                 </div>
             </li>
