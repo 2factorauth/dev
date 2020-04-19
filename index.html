@@ -17,7 +17,7 @@ layout: default
             {% include mobile-table.html id-param=section.id title-param=section.title %}
             {% assign offcount = 5 | times: rowcount %}
             {% for section in site.data.sections limit: 5 offset: offcount %}
-                {% include table.html id-param=section.id title-param=section.title %}
+                {% include desktop-table.html id-param=section.id title-param=section.title %}
             {% endfor %}
 
         {% if forloop.index != forloop.length %}

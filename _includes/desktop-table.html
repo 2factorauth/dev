@@ -26,7 +26,12 @@
 
                         <td>
                             <div class="row no-gutters">
-                                <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}" src="/img/placeholder.png">
+                                <picture>
+                                    {% assign webp = website.img | replace: ".png", ".webp" %}
+                                    <source type="image/webp" data-srcset="/img/{{section_id}}/{{webp}} 1x" >
+                                    <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" src="/img/placeholder.png" data-src="/img/{{ section_id }}/{{ website.img }}">
+                                </picture>
+
                                 <a class="site-name {% if website.exception %}exception-site{% endif %}" href="{{ website.url }}">{{ website.name }}</a>
                                 {% if website.exception %}
                                     <i class="fas fa-exclamation-triangle exception" data-content="{{ website.exception }}"></i>
