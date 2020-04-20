@@ -49,6 +49,6 @@ jobs:
           build_dir: _site
           committer_name: Octocat
           committer_email: octocat@users.noreply.github.com
-          fqdn: 2fa.carlgo11.com
+          fqdn: dev.twofactorauth.org
         env:
           GITHUB_PAT: ${{ secrets.GH_TOKEN }}
