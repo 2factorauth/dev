@@ -21,5 +21,7 @@ exclude:
     - manifest.json
     - service-worker.js
     - favicon.ico
+    - about.html
+    - README.md
 sass:
     style: compressed

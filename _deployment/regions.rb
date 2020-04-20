@@ -16,7 +16,6 @@ regions.each do |region|
     Dir.mkdir(dest_dir) unless File.exist?(dest_dir)
     files = Dir.glob('../*').reject { |file| file.end_with?('../.') }
     FileUtils.cp_r(files, dest_dir)
-    File.delete("#{dest_dir}/about.html") # Skip about.html as it requires GH access token.
   end
 
   # Category loop
