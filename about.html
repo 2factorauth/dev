@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<h1 style="text-align: center; margin-top: 10vh;margin-bottom: 4vh;" class="display-3">The 2FactorAuth Group</h1>
+
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies orci varius, dignissim dolor sed, malesuada risus. Aenean lobortis orci augue, eu ultricies justo rutrum ac. Donec ultrices ullamcorper nunc, nec consectetur nisl pharetra eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ultrices risus ut consectetur egestas. Donec dignissim, lectus et auctor ornare, quam ante aliquam augue, posuere scelerisque est velit id nulla. Suspendisse neque ante, sodales et iaculis quis, aliquam quis lectus. Quisque viverra posuere dignissim. Integer porta quis diam ut placerat. </p>
+
+
+<h2 style="text-align: center; margin-top: 10vh;" class="display-4">The Team</h2>
+<div class="row">
+    {% for maintainer in site.github.organization_members %}
+
+    <div class="maintainer col-3" id="{{ maintainer.login }}"
+         style="align-items: center; margin-top: 4vh; margin-bottom: 4vh;">
+        <div class="card" style="border-radius: 2px">
+            <img class="maintainer-img card-img-top" src="{{ maintainer.avatar_url }}"
+                 style=""><!--height: 128px; width: 128px; border-radius: 50%; margin: auto; display: block-->
+            <div class="card-body">
+                <a href="{{ maintainer.html_url}}">
+                    <h2 class="maintainer-name card-title"
+                        style="text-align: center; color: black; text-underline: none; text-decoration: none;">{{
+                        maintainer.login }}</h2>
+                </a>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #55acee; display: flex">
+                            <i class="fab fa-twitter" style="margin: auto; font-size: 18px"></i></div>
+                    </div>
+                    <div class="col">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #e4405f; display: flex">
+                            <i class="fab fa-instagram" style="margin: auto; font-size: 18px"></i></div>
+                    </div>
+                    <div class="col">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #34465d; display: flex">
+                            <i class="fas fa-globe" style="margin: auto; font-size: 18px"></i></div>
+                    </div>
+                    <div class="col">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #3b7bbf; display: flex">
+                            <i class="fab fa-paypal" style="margin: auto; font-size: 18px"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
