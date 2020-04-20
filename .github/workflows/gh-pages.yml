@@ -19,9 +19,10 @@ jobs:
           path: vendor/cache
           key: ${{ runner.os }}-bundle-${{ hashFiles('**/Gemfile.lock') }}
 
+      - uses: actions/setup-ruby@v1
+
       - name: Install dependencies
         run: |
-          sudo snap install ruby --classic
           bundle config set path 'vendor/cache'
           bundle config set cache_all true
           bundle install --jobs 4 --retry 3
