@@ -29,12 +29,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" crossorigin="anonymous" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="/css/popup.css">
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/navbar.css">
+        {% if page.name == "index.html" %}
+        <link rel="stylesheet" href="/css/popup.css">
         <link rel="stylesheet" href="/css/desktop-table.css">
         <link rel="stylesheet" href="/css/mobile-table.css">
         <link rel="stylesheet" href="/css/social-media.css">
+        {% elsif page.name == "about.html" %}
+        <link rel="stylesheet" href="/css/about.css">
+        {% endif %}
+
     </head>
 
     <body>

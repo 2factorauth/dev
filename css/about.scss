@@ -1,0 +1,80 @@
+---
+---
+#title {
+  text-align: center;
+  margin-top: 10vh;
+  margin-bottom: 4vh;
+}
+
+#team-title {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.maintainer {
+  align-items: center;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+
+  .card {
+    border-radius: 2px;
+
+    .maintainer-name {
+      text-align: center;
+      color: black;
+      text-decoration: none !important;
+    }
+
+    .twitter {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #55acee;
+      display: flex;
+
+      .fa-twitter {
+        margin: auto;
+        font-size: 18px;
+      }
+    }
+
+    .instagram {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #e4405f;
+      display: flex;
+
+      .fa-instagram {
+        margin: auto;
+        font-size: 18px;
+      }
+    }
+
+    .website {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #34465d;
+      display: flex;
+
+      .fa-globe {
+        margin: auto;
+        font-size: 18px;
+      }
+    }
+
+    .paypal {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #3b7bbf;
+      display: flex;
+
+      .fa-paypal {
+        margin: auto;
+        font-size: 18px;
+      }
+    }
+  }
+}
