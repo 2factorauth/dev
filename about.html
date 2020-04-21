@@ -16,8 +16,10 @@ layout: default
 <h2 class="display-4" id="team-title">The Team</h2>
 
 <div class="row">
+    {% assign maintainer-links = site.data.maintainers %}
+
     {% for maintainer in site.github.organization_members %}
-    <div class="maintainer col-3" id="{{ maintainer.login }}">
+    <div class="maintainer col-12 col-md-4 col-lg-3" id="{{ maintainer.login }}">
         <div class="card">
             <img class="maintainer-img card-img-top" src="{{ maintainer.avatar_url }}">
             <div class="card-body">
@@ -26,23 +28,29 @@ layout: default
                 </a>
                 <hr>
 
+                {% assign links = maintainer-links | where: "name", maintainer.login %}
                 <div class="row">
+                    {% if links[0].twitter %}
                     <div class="col">
                         <div class="twitter">
-                            <i class="fab fa-twitter"></i></div>
+                            <i class="fab fa-twitter"></i>
+                        </div>
                     </div>
+                    {% endif %}
+                    {% if links[0].linkedin %}
                     <div class="col">
-                        <div class="instagram">
-                            <i class="fab fa-instagram"></i></div>
+                        <div class="linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
                     </div>
+                    {% endif %}
+                    {% if links[0].website %}
                     <div class="col">
                         <div class="website">
-                            <i class="fas fa-globe"></i></div>
+                            <i class="fas fa-globe"></i>
+                        </div>
                     </div>
-                    <div class="col">
-                        <div class="paypal">
-                            <i class="fab fa-paypal"></i></div>
-                    </div>
+                    {% endif %}
                 </div>
 
             </div>
