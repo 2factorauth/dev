@@ -11,8 +11,8 @@
 .social-button {
   height: 100%;
   width: 140px;
-  max-width: 50%;
   color: white;
+  margin: 0 6px;
 
   &.twitter-button {
     background-color: #1DA1F2;
@@ -30,5 +30,6 @@
 @media screen and (max-width: 992px) {
   .social-button {
     margin: .2em;
+    max-width: 50%;
   }
 }
