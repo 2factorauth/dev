@@ -34,6 +34,12 @@
           td {
             border-left: 1px solid rgb(222, 226, 230); // Weird bug that displays borders outside of the table at 1st td in row.
           }
+
+          &.table-danger {
+            td {
+              text-align: left;
+            }
+          }
         }
 
         td {
