@@ -11,6 +11,16 @@
   margin-top: 10vh;
 }
 
+.row {
+  width: 95%;
+  margin: auto;
+
+  a {
+    text-decoration: none !important;
+    color: initial;
+  }
+}
+
 .maintainer {
   align-items: center;
   margin-top: 4vh;
@@ -22,7 +32,6 @@
     .maintainer-name {
       text-align: center;
       color: black;
-      text-decoration: none !important;
     }
 
     .twitter {
@@ -31,21 +40,24 @@
       border-radius: 50%;
       background-color: #55acee;
       display: flex;
+      margin: auto;
 
       .fa-twitter {
         margin: auto;
         font-size: 18px;
+        color: white;
       }
     }
 
-    .instagram {
+    .linkedin {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background-color: #e4405f;
+      background-color: #0a66c2;
       display: flex;
+      margin: auto;
 
-      .fa-instagram {
+      .fa-linkedin-in {
         margin: auto;
         font-size: 18px;
       }
@@ -57,23 +69,12 @@
       border-radius: 50%;
       background-color: #34465d;
       display: flex;
+      margin: auto;
 
       .fa-globe {
         margin: auto;
         font-size: 18px;
-      }
-    }
-
-    .paypal {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #3b7bbf;
-      display: flex;
-
-      .fa-paypal {
-        margin: auto;
-        font-size: 18px;
+        color: white;
       }
     }
   }
