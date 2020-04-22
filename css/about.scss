@@ -1,9 +1,13 @@
 ---
 ---
-#title {
+.title {
   text-align: center;
   margin-top: 10vh;
   margin-bottom: 4vh;
+
+  &.mobile-only {
+    font-size: 8vw;
+  }
 }
 
 #team-title {
@@ -30,9 +34,10 @@
     border-radius: 2px;
     transition: all ease .4s;
 
-    &:hover{
+    &:hover {
       transform: translateY(-0.75em);
     }
+
     .maintainer-name {
       text-align: center;
       color: black;
