@@ -3,6 +3,7 @@
 body {
   background-color: #fff;
   font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+  min-width: 300px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -194,6 +195,7 @@ thead {
     right: 0;
     width: max-content;
     padding-bottom: 2vh;
+    font-size: 0.9em;
   }
 
   #buildNumber {

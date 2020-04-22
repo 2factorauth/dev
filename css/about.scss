@@ -28,7 +28,11 @@
 
   .card {
     border-radius: 2px;
+    transition: all ease .4s;
 
+    &:hover{
+      transform: translateY(-0.75em);
+    }
     .maintainer-name {
       text-align: center;
       color: black;
