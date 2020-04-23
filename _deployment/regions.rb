@@ -7,11 +7,14 @@ data_dir = '../_data'
 
 sections = YAML.load_file("#{data_dir}/sections.yml")
 regions = YAML.load_file("#{data_dir}/regions.yml")
+tmp_dir = '/tmp'
 
+git_dir = Dir.glob('../.git')
+FileUtils.cp_r(git_dir, "#{tmp_dir}/")
 # Region loop
 regions.each do |region|
 
-  dest_dir = "/tmp/#{region['id']}"
+  dest_dir = "#{tmp_dir}/#{region['id']}"
   unless File.exist?(dest_dir)
     Dir.mkdir(dest_dir) unless File.exist?(dest_dir)
     files = Dir.glob('../*').reject { |file| file.end_with?('../.') }
