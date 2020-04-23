@@ -13,15 +13,30 @@
 }
 
 .nav-link {
-  color: #3e3e3e !important;
+  color: #3e3e3e;
+
+  &:hover {
+    color: #3e3e3e;
+  }
 }
 
-.nav-link:hover {
-  color: initial !important;
-}
 li {
   margin: 0 5px;
 }
+
 li:hover {
   background: #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: #6f6f6f96;
+  }
+  .nav-link {
+    color: #fff;
+
+    &:hover {
+      color: #3e3e3e !important;
+    }
+  }
 }
