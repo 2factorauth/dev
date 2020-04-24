@@ -3,13 +3,13 @@
 require 'yaml'
 require 'fileutils'
 
-data_dir = '../_data'
+data_dir = './_data'
 
 sections = YAML.load_file("#{data_dir}/sections.yml")
 regions = YAML.load_file("#{data_dir}/regions.yml")
 tmp_dir = '/tmp'
 
-git_dir = Dir.glob('../.git')
+git_dir = Dir.glob('.git')
 FileUtils.cp_r(git_dir, "#{tmp_dir}/")
 # Region loop
 regions.each do |region|
@@ -17,7 +17,7 @@ regions.each do |region|
   dest_dir = "#{tmp_dir}/#{region['id']}"
   unless File.exist?(dest_dir)
     Dir.mkdir(dest_dir) unless File.exist?(dest_dir)
-    files = Dir.glob('../*').reject { |file| file.end_with?('../.') }
+    files = Dir.glob('./*').reject { |file| file.end_with?('./.') }
     FileUtils.cp_r(files, dest_dir)
   end
 
@@ -46,7 +46,7 @@ regions.each do |region|
 
   end
 
-  out_dir = "#{Dir.pwd}/../#{region['id']}"
+  out_dir = "#{Dir.pwd}/#{region['id']}"
   puts "Building #{region['id']}..."
   puts `cd #{dest_dir} && bundle exec jekyll build -d #{out_dir} --config _config-regions.yml` # Add -V for debugging
   puts `cd #{out_dir} && rm -R -- */` # Delete Subdirectories

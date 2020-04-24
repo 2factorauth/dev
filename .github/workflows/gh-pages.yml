@@ -31,8 +31,7 @@ jobs:
           [ -d "vendor/cache" ] || { bundle package; }
 
       - name: Build region sites
-        working-directory: _deployment
-        run: ruby regions.rb
+        run: ruby ./_deployment/regions.rb
 
       - name: Minify content
         run: |
@@ -40,7 +39,7 @@ jobs:
           ./_deployment/webp.sh
 
       - name: Build the site
-        run: bundle exec jekyll build
+        run: JEKYLL_ENV=production bundle exec jekyll build
 
       - name: Deploy to GH Pages
         if: success()
