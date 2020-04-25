@@ -205,6 +205,8 @@ thead {
   padding-top: 4vh;
   bottom: 0;
   margin: 30px 2vh auto;
+  position: fixed;
+  width: 100%;
 
   #innerFooter {
     position: absolute;
@@ -221,6 +223,7 @@ thead {
     font-size: 15px;
     float: right;
     color: #eee;
+    margin-right: 36px;
   }
 }
 
@@ -229,6 +232,7 @@ thead {
     color: #fff;
     background: {{ site.theme_color }} !important;
   }
+
   .category-title {
     color: {{ site.theme_color }} !important;
   }
