@@ -39,7 +39,7 @@ jobs:
           ./_deployment/webp.sh
 
       - name: Build the site
-        run: JEKYLL_ENV=production bundle exec jekyll build
+        run: bundle exec jekyll build --config _config.yml _deployment/config-production.yml
 
       - name: Deploy to GH Pages
         if: success()
