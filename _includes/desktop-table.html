@@ -97,19 +97,19 @@
                                 Tell them to support 2FA!
                                 <div class="social-button-group">
                                     {% if website.twitter %}
-                                        <div class="twitter-button social-button btn">
+                                        <div class="twitter-button social-button btn" data-twitter="{{ website.twitter }}" data-lang="{{ website.lang | default: "en" }}" data-status="{% if website.status %}in-progress{% else %}no-2fa{% endif %}">
                                             <i class="fab fa-twitter"></i>
                                             On Twitter
                                         </div>
                                     {% endif %}
                                     {% if website.facebook %}
-                                        <div class="facebook-button social-button btn">
+                                        <div class="facebook-button social-button btn" data-facebook="{{ website.facebook }}">
                                             <i class="fab fa-facebook-f"></i>
                                             On Facebook
                                         </div>
                                     {% endif %}
                                     {% if website.email_address %}
-                                        <div class="email-button social-button btn">
+                                        <div class="email-button social-button btn" data-email="{{ website.email_address }}">
                                             <i class="fas fa-envelope"></i>
                                             Via Email</div>
                                     {% endif %}
