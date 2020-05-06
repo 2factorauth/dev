@@ -1,4 +1,4 @@
 exclude:
-    - manifest.json
-    - service-worker.js
-    - about.html
+  - manifest.json
+  - service-worker.js
+  - about.html

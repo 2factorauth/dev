@@ -9,10 +9,10 @@ $('.email-button').click(function () {
 $('.twitter-button').click(function () {
   let langs = new Map();
   {% for lang in site.data.languages %}
-  langs.set("{{ lang[0] }}",  {
-      "in-progress": "{{ lang[1].progress_tweet |cgi_escape }}",
-      "no-2fa": "{{ lang[1].work_tweet |cgi_escape }}"
-    }
+  langs.set("{{ lang[0] }}", {
+    "in-progress": "{{ lang[1].progress_tweet |cgi_escape }}",
+    "no-2fa": "{{ lang[1].work_tweet |cgi_escape }}"
+  }
   );
   {% endfor %}
 
@@ -21,5 +21,5 @@ $('.twitter-button').click(function () {
   const handle = $(this).data('twitter')
   const text = langs.get(lang)[status].replace('TWITTERHANDLE', handle)
 
-  window.open('https://twitter.com/share?url={{site.url | cgi_escape}}&amp;hashtags=SupportTwoFactorAuth&amp;text='+text, '_blank');
+  window.open('https://twitter.com/share?url={{site.url | cgi_escape}}&amp;hashtags=SupportTwoFactorAuth&amp;text=' + text, '_blank');
 })

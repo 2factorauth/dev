@@ -6,7 +6,7 @@ layout: default
 <h1 class="mobile-only title">The 2FactorAuth Group</h1>
 
 <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies orci varius, dignissim dolor sed, malesuada
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies orci varius, dignissim dolor sed, malesuada
     risus. Aenean lobortis orci augue, eu ultricies justo rutrum ac. Donec ultrices ullamcorper nunc, nec consectetur
     nisl pharetra eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus
     ultrices risus ut consectetur egestas. Donec dignissim, lectus et auctor ornare, quam ante aliquam augue, posuere
@@ -16,44 +16,44 @@ layout: default
 
 <h2 class="display-4" id="team-title">The Team</h2>
 <div class="row">
-    {% assign maintainer-links = site.data.maintainers %}
-    {% for maintainer in site.github.organization_members %}
+  {% assign maintainer-links = site.data.maintainers %}
+  {% for maintainer in site.github.organization_members %}
     <div class="maintainer col-12 col-md-4 col-lg-3" id="{{ maintainer.login }}">
-        <div class="card">
-            <img class="maintainer-img card-img-top lazyload" data-src="{{ maintainer.avatar_url }}&size=291" src="/img/placeholder.png">
-            <div class="card-body">
-                <a href="{{ maintainer.html_url}}">
-                    <h2 class="maintainer-name card-title">{{ maintainer.login }}</h2>
-                </a>
-                <hr>
+      <div class="card">
+        <img class="maintainer-img card-img-top lazyload" data-src="{{ maintainer.avatar_url }}&size=291" src="/img/placeholder.png">
+        <div class="card-body">
+          <a href="{{ maintainer.html_url}}">
+            <h2 class="maintainer-name card-title">{{ maintainer.login }}</h2>
+          </a>
+          <hr>
 
-                {% assign links = maintainer-links | where: "name", maintainer.login %}
-                <div class="row">
-                    {% if links[0].twitter %}
-                    <div class="col">
-                        <div class="twitter">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% if links[0].linkedin %}
-                    <div class="col">
-                        <div class="linkedin">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% if links[0].website %}
-                    <div class="col">
-                        <div class="website">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-                    {% endif %}
+          {% assign links = maintainer-links | where: "name", maintainer.login %}
+          <div class="row">
+            {% if links[0].twitter %}
+              <div class="col">
+                <div class="twitter">
+                  <i class="fab fa-twitter"></i>
                 </div>
+              </div>
+            {% endif %}
+            {% if links[0].linkedin %}
+              <div class="col">
+                <div class="linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+              </div>
+            {% endif %}
+            {% if links[0].website %}
+              <div class="col">
+                <div class="website">
+                  <i class="fas fa-globe"></i>
+                </div>
+              </div>
+            {% endif %}
+          </div>
 
-            </div>
         </div>
+      </div>
     </div>
-    {% endfor %}
+  {% endfor %}
 </div>

@@ -33,6 +33,9 @@
         tr {
           td {
             border-left: 1px solid rgb(222, 226, 230); // Weird bug that displays borders outside of the table at 1st td in row.
+            &:first-child{
+              border-left: 0 solid !important;
+            }
           }
 
           &.table-danger {

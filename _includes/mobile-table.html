@@ -3,74 +3,74 @@
 
 <div class="collapse category-table mobile-only" id="{{section_id}}-mobile-table">
 
-    {% for website in site.data[section_id].websites %}
+  {% for website in site.data[section_id].websites %}
 
     <div class="col-11 {% if website.tfa %}table-success{%else%}table-danger{%endif%}">
 
-        <!-- Title -->
-        <div class="site-title">
-            <a class="site-name" href="{{ website.url }}">
-                <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}"
-                     src="/img/placeholder.png">
-                {{ website.name }}</a>
-        </div>
+      <!-- Title -->
+      <div class="site-title">
+        <a class="site-name" href="{{ website.url }}">
+          <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}" src="/img/placeholder.png">
+          {{ website.name }}</a>
+      </div>
 
-        <!-- tfa options -->
-        {% if website.tfa %}
+      <!-- tfa options -->
+      {% if website.tfa %}
         <div class="row row-cols-2">
-            {% for tfa in website.tfa %}
+          {% for tfa in website.tfa %}
 
             <div class="col text-success">
-                <i class="fas fa-check"></i>
-                <b> {{ tfa | replace: "proprietary", "software" | replace: "hardware", "hardware" | capitalize | replace: "Sms", "SMS" | replace: "Totp", "TOTP" | replace: "U2f", "U2F" }}</b>
+              <i class="fas fa-check"></i>
+              <b>
+                {{ tfa | replace: "proprietary", "software" | replace: "hardware", "hardware" | capitalize | replace: "Sms", "SMS" | replace: "Totp", "TOTP" | replace: "U2f", "U2F" }}</b>
             </div>
 
-            {% endfor %}
+          {% endfor %}
 
         </div>
 
         {% if website.doc %}
-        <div class="btn doc-btn col-11 col-sm-8 d-flex justify-content-center website-doc">
+          <div class="btn doc-btn col-11 col-sm-8 d-flex justify-content-center website-doc">
             <a href="{{ website.doc }}">
-                <i class="fas fa-book"></i>
-                Read more
+              <i class="fas fa-book"></i>
+              Read more
             </a>
-        </div>
+          </div>
         {% endif %}
 
-        {% else %}
+      {% else %}
 
         <b class="text-danger">2FA not supported</b>
         <div class="row justify-content-center">
 
-            {% if website.twitter %}
+          {% if website.twitter %}
 
             <div class="col ml-md-auto twitter-button social-button btn" title="Tweet them!">
-                <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter"></i>
             </div>
 
-            {% endif %}
+          {% endif %}
 
-            {% if website.facebook %}
+          {% if website.facebook %}
 
             <div class="col facebook-button social-button btn" title="Contact them!">
-                <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-facebook-f"></i>
             </div>
 
-            {% endif %}
+          {% endif %}
 
-            {% if website.email_address %}
+          {% if website.email_address %}
 
             <div class="col email-button social-button btn" title="Email them!">
-                <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope"></i>
             </div>
 
-            {% endif %}
+          {% endif %}
 
         </div>
-        {% endif %}
+      {% endif %}
 
     </div>
-    {% endfor %}
+  {% endfor %}
 
 </div>

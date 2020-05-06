@@ -2,123 +2,119 @@
 {% assign section_title = include.title-param %}
 
 <div id="{{section_id}}-table" class="collapse category-table desktop-only">
-    <a id="{{section_id}}" class="category-href"></a>
-    <table class="table table-hover table-bordered table-bordered">
-        <thead class="sticky-top">
-            <tr>
-                <th scope="col">{{ section_title }}</th>
-                <th scope="col">Docs</th>
-                <th scope="col">SMS</th>
-                <th scope="col">Phone Call</th>
-                <th scope="col">Email</th>
-                <th scope="col">Hardware token</th>
-                <th scope="col">Software token</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for website in site.data[section_id].websites %}
+  <a id="{{section_id}}" class="category-href"></a>
+  <table class="table table-hover table-bordered table-bordered">
+    <thead class="sticky-top">
+      <tr>
+        <th scope="col">{{ section_title }}</th>
+        <th scope="col">Docs</th>
+        <th scope="col">SMS</th>
+        <th scope="col">Phone Call</th>
+        <th scope="col">Email</th>
+        <th scope="col">Hardware token</th>
+        <th scope="col">Software token</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for website in site.data[section_id].websites %}
 
-                {% if website.tfa %}
-                    <tr class="table-success">
-                    {%else %}
-                        <tr class="table-danger">
-                        {% endif %}
+        <tr class="table-{% if website.tfa %}success{%else %}danger{% endif %}">
 
-                        <td style="border-left: 0px solid !important;">
-                            <div class="row no-gutters">
-                                <picture>
-                                    {% assign webp = website.img | replace: ".png", ".webp" %}
-                                    <source type="image/webp" data-srcset="/img/{{section_id}}/{{webp}} 1x" >
-                                    <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" src="/img/placeholder.png" data-src="/img/{{ section_id }}/{{ website.img }}">
-                                </picture>
+          <td>
+            <div class="row no-gutters">
+              <picture>
+                {% assign webp = website.img | replace: ".png", ".webp" %}
+                <source data-srcset="/img/{{section_id}}/{{webp}} 1x" type="image/webp">
+                <img class="logo lazyload{% if website.no_img_border %} no-border{%endif%}" data-src="/img/{{ section_id }}/{{ website.img }}" src="/img/placeholder.png">
+              </picture>
 
-                                <a class="site-name {% if website.exception %}exception-site{% endif %}" href="{{ website.url }}">{{ website.name }}</a>
-                                {% if website.exception %}
-                                    <i class="fas fa-exclamation-triangle exception" data-content="{{ website.exception }}"></i>
-                                {% endif %}
-                            </div>
-                        </td>
+              <a class="site-name {% if website.exception %}exception-site{% endif %}" href="{{ website.url }}">{{ website.name }}</a>
 
-                        {% assign tfa = website.tfa %}
-                        {% if website.tfa %}
+              {% if website.exception %}
+                <i class="fas fa-exclamation-triangle exception" data-content="{{ website.exception }}"></i>
+              {% endif %}
+            </div>
+          </td>
 
-                            {% if website.doc %}
-                                <td class="icon-cell">
-                                    <a href="{{ website.doc }}">
-                                        <i class="fas fa-book"></i>
-                                    </a>
-                                </td>
-                            {% else %}
-                                <td class="icon-cell"></td>
-                            {% endif %}
+          {% if website.tfa %}
+            {% assign tfa = website.tfa %}
 
-                            <td class="icon-cell">
-                                {% if tfa contains "sms" %}
-                                    <i class="tfa-icon  fas fa-check"></i>
-                                {% endif %}
-                            </td>
+            <td class="icon-cell">
+              {% if website.doc %}
+                <a href="{{ website.doc }}">
+                  <i class="fas fa-book"></i>
+                </a>
+              {% endif %}
+            </td>
 
-                            <td class="icon-cell">
-                                {% if tfa contains "phone" %}
-                                    <i class="tfa-icon  fas fa-check"></i>
-                                    {%endif%}</td>
-                            </td>
-                            <td class="icon-cell">
-                                {% if tfa contains "email" %}
-                                    <i class="tfa-icon  fas fa-check"></i>
-                                {% endif %}
-                            </td>
+            <td class="icon-cell">
+              {% if tfa contains "sms" %}
+                <i class="tfa-icon fas fa-check"></i>
+              {% endif %}
+            </td>
 
-                            <td class="icon-cell">
-                                <div class="row">
-                                    {% if tfa contains "hardware" %}
-                                        <i class="tfa-icon  fas fa-check col"></i>
-                                    {% endif %}
+            <td class="icon-cell">
+              {% if tfa contains "phone" %}
+                <i class="tfa-icon fas fa-check"></i>
+                {%endif%}</td>
+            </td>
+            <td class="icon-cell">
+              {% if tfa contains "email" %}
+                <i class="tfa-icon fas fa-check"></i>
+              {% endif %}
+            </td>
 
-                                    {% if tfa contains "u2f" %}
-                                        <i class="tfa-icon u2f-icon col" title="U2F"><img alt="U2F" height="20" src="/img/u2f.svg" type="image/svg"></i>
-                                    {% endif %}
-                                </div>
-                            </td>
+            <td class="icon-cell">
+              <div class="row">
+                {% if tfa contains "hardware" %}
+                  <i class="tfa-icon fas fa-check col"></i>
+                {% endif %}
 
-                            <td class="icon-cell">
-                                <div class="row">
-                                    {% if tfa contains "totp" %}
-                                        <i class="tfa-icon fas fa-check col"></i>
-                                    {% endif %}
-                                    {% if tfa contains "proprietary" %}
-                                        <i class="tfa-icon fas fa-info col" title="Proprietary software based"></i>
-                                    {% endif %}
-                                </div>
-                            </td>
-                        {% else %}
+                {% if tfa contains "u2f" %}
+                  <i class="tfa-icon u2f-icon col" title="U2F">
+                    <img alt="U2F" height="20" src="/img/u2f.svg" type="image/svg">
+                  </i>
+                {% endif %}
+              </div>
+            </td>
 
-                            <td colspan="6">
-                                Tell them to support 2FA!
-                                <div class="social-button-group">
-                                    {% if website.twitter %}
-                                        <div class="twitter-button social-button btn" data-twitter="{{ website.twitter }}" data-lang="{{ website.lang | default: "en" }}" data-status="{% if website.status %}in-progress{% else %}no-2fa{% endif %}">
-                                            <i class="fab fa-twitter"></i>
-                                            On Twitter
-                                        </div>
-                                    {% endif %}
-                                    {% if website.facebook %}
-                                        <div class="facebook-button social-button btn" data-facebook="{{ website.facebook }}">
-                                            <i class="fab fa-facebook-f"></i>
-                                            On Facebook
-                                        </div>
-                                    {% endif %}
-                                    {% if website.email_address %}
-                                        <div class="email-button social-button btn" data-email="{{ website.email_address }}">
-                                            <i class="fas fa-envelope"></i>
-                                            Via Email</div>
-                                    {% endif %}
-                                </div>
-                            </td>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </tbody>
-    </table>
+            <td class="icon-cell">
+              <div class="row">
+                {% if tfa contains "totp" %}
+                  <i class="tfa-icon fas fa-check col"></i>
+                {% endif %}
+                {% if tfa contains "proprietary" %}
+                  <i class="tfa-icon fas fa-info col" title="Proprietary software based 2FA"></i>
+                {% endif %}
+              </div>
+            </td>
+          {% else %}
+
+            <td colspan="6">
+              Tell them to support 2FA!
+              <div class="social-button-group">
+                {% if website.twitter %}
+                  <div class="twitter-button social-button btn" data-twitter="{{ website.twitter }}" data-lang="{{ website.lang | default: "en" }}" data-status="{% if website.status %}in-progress{% else %}no-2fa{% endif %}">
+                    <i class="fab fa-twitter"></i>
+                    On Twitter
+                  </div>
+                {% endif %}
+                {% if website.facebook %}
+                  <div class="facebook-button social-button btn" data-facebook="{{ website.facebook }}">
+                    <i class="fab fa-facebook-f"></i>
+                    On Facebook
+                  </div>
+                {% endif %}
+                {% if website.email_address %}
+                  <div class="email-button social-button btn" data-email="{{ website.email_address }}">
+                    <i class="fas fa-envelope"></i>
+                    Via Email</div>
+                {% endif %}
+              </div>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>

@@ -18,6 +18,9 @@
   li:hover {
     background: #ddd;
   }
+  .dropdown-menu {
+    position: absolute !important; // Bootstrap normally sets position static for dropdowns in mobile views
+  }
 }
 
 .nav-link {

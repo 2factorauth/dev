@@ -36,7 +36,8 @@
       "src": "/img/icons/icon_512x512.png",
       "type": "image/png",
       "sizes": "512x512"
-    },{
+    },
+    {
       "src": "/img/icons/apple-icon_512x512.png",
       "type": "image/png",
       "sizes": "512x512",
