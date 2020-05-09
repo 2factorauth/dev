@@ -16,6 +16,11 @@ $(document).ready(function () {
     showCategory(query.substring(1));
   }
 
+  // Fix the footer to bottom of viewport if body is less than viewport
+  if($('body').height() < $(window).height()){
+    $('.footer').css({position: 'absolute'});
+  }
+
 });
 
 // On category click
