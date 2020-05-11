@@ -62,6 +62,16 @@
     {% endunless %}
 
     <div class="container">
+      <noscript>
+        <div class="alert bg-danger text-white border" style="padding: 1vh 1vw;margin-top: 1vh;">
+          <h2>It looks like you have JavaScript disabled!</h2>
+          <p>Without JavaScript, this page probably won't work very well.
+                  For more information, or if you would like to talk to us about this,
+                  please take a look at our
+            <b><a href="{{ site.repo }}" style="color: whitesmoke;">
+              GitHub repository</a></b>.</p>
+        </div>
+      </noscript>
       {{ content }}
     </div>
 
