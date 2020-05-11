@@ -48,7 +48,7 @@ regions.each do |region|
 
   out_dir = "#{Dir.pwd}/#{region['id']}"
   puts "Building #{region['id']}..."
-  puts `cd #{dest_dir} && bundle exec jekyll build -d #{out_dir} --config _config.yml _deployment/config-regions.yml` # Add -V for debugging
+  puts `cd #{dest_dir} && bundle exec jekyll build -d #{out_dir} --config _config.yml _deployment/config-regions.yml --baseurl #{region['id']}` # Add -V for debugging
   puts `cd #{out_dir} && rm -R -- */` # Delete Subdirectories
   puts "#{region['id']} built!"
 end
