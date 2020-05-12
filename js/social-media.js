@@ -1,5 +1,3 @@
----
----
   $('.facebook-button').click(function () {
     window.open("https://facebook.com/" + $(this).data('facebook'), '_blank');
   })
