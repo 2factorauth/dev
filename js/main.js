@@ -3,7 +3,7 @@ $(document).ready(function () {
   const lazyLoadInstance = new LazyLoad({ elements_selector: ".lazyload" });
 
   // Show popup notice
-  $('.exception').popup({ position: 'right center', title: 'Exceptions & Restrictions' });
+  $('.exception').popup({ position: 'right center', hoverable: true, title: 'Exceptions & Restrictions' });
 
   // Register service worker
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
