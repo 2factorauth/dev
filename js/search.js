@@ -1,9 +1,8 @@
 $(document).ready(function () {
   var jets = new Jets({
     searchTag: '#innerSearchBox',
-    contentTag: '.tbody',
+    contentTag: '.searchContainer',
     didSearch: function (search_phrase) {
-
       document.location.hash = '';
 
       if (search_phrase == '') {

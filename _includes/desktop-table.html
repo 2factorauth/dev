@@ -15,7 +15,7 @@
         <th scope="col">Software token</th>
       </tr>
     </thead>
-    <tbody class="tbody">
+    <tbody class="searchContainer">
       {% for website in site.data[section_id].websites %}
 
         <tr class="table-{% if website.tfa %}success{%else %}danger{% endif %}">
