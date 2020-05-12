@@ -81,8 +81,10 @@
         and maintained by
         <a href="https://github.com/2factorauth">2factorauth</a>
       </div>
-      <div id="buildNumber" class="desktop-only" title="{{ site.github.build_revision }}">Build:
-        {{ site.github.build_revision | slice: 0,7 }}</div>
+      <div id="buildNumber" class="desktop-only" title="{{ site.github.build_revision }}">
+        Build #: {{ site.github.build_revision | slice: 0,7 }}<br>
+        Build Date: {{ site.time }}
+      </div>
     </div>
 
     <script crossorigin="anonymous" integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ==" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
