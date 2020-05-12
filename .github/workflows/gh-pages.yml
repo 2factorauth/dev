@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.1.0
 
       - name: Get Cache
         id: cache
-        uses: actions/cache@v1
+        uses: actions/cache@v1.1.2
         with:
           path: vendor/cache
           key: ${{ runner.os }}-bundle-${{ hashFiles('**/Gemfile.lock') }}
