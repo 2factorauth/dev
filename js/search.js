@@ -9,6 +9,7 @@ $(document).ready(function () {
         // Empty search value
         // Display everything. Close tables
         $('.cat').show();
+        $('.category-table').removeClass('show');
       } else {
         // Populated search field
 
