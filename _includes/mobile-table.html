@@ -48,7 +48,7 @@
 
           {% if website.twitter %}
 
-            <div class="col ml-md-auto twitter-button social-button btn" title="Tweet them!">
+            <div class="col ml-md-auto twitter-button social-button btn" title="Tweet them!" data-twitter="{{ website.twitter }}" data-lang="{{ website.lang }}" data-status="{% if website.status %}in-progress{% else %}no-2fa{% endif %}">
               <i class="fab fa-twitter"></i>
             </div>
 
@@ -56,7 +56,7 @@
 
           {% if website.facebook %}
 
-            <div class="col facebook-button social-button btn" title="Contact them!">
+            <div class="col facebook-button social-button btn" title="Contact them!" data-facebook="{{ website.facebook }}">
               <i class="fab fa-facebook-f"></i>
             </div>
 
@@ -64,7 +64,7 @@
 
           {% if website.email_address %}
 
-            <div class="col email-button social-button btn" title="Email them!">
+            <div class="col email-button social-button btn" title="Email them!" data-email="{{ website.email_address }}" data-lang="{{ website.lang }}">
               <i class="fas fa-envelope"></i>
             </div>
 
