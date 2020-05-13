@@ -68,6 +68,7 @@ def test_img_file(img, name)
   end
   # rubocop:enable Style/GuardClause
 end
+
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 
@@ -79,7 +80,7 @@ begin
   # Check sections.yml alphabetization
   error('section.yml is not alphabetized by name', sections_file) \
     if sections != (sections.sort_by { |section| section['id'].downcase })
-  schema = YAML.load_file('websites_schema.yml')
+  schema = YAML.load_file('_deployment/tests/websites_schema.yml')
   validator = Kwalify::Validator.new(schema)
   sections.each do |section|
     data_file = "_data/#{section['id']}.yml"
@@ -114,14 +115,20 @@ begin
 
     # After removing images associated with entries in test_img, alert
     # for unused or orphaned images
-    imgs.each { |img| next unless img.nil? error("#{img} is not used", img) }
+    imgs.each do |img|
+      next if img.nil? || img.end_with?('webp') do
+        next
+      end
+
+      error("#{img} is not used", img)
+    end
   end
 rescue Psych::SyntaxError => e
   puts "<------------ ERROR in a YAML file ------------>\n"
   puts "::error:: #{e}"
   exit 1
 rescue StandardError => e
-  puts "#{e}"
+  puts e.to_s
   exit 1
 else
   puts "<------------ No errors. You\'re good to go! ------------>\n"

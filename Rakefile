@@ -44,7 +44,7 @@ end
 # rubocop:enable Layout/LineLength
 
 task :verify do
-  ruby '.tests/verify.rb'
+  ruby '_deployment/tests/verify.rb'
 end
 
 RuboCop::RakeTask.new
