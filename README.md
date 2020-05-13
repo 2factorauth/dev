@@ -5,7 +5,7 @@ This repository is a rework of the current twofactorauth.org website. It's curre
 ## Installation
 Ubuntu/WSL:
 ```bash
-snap install ruby --classic #(Unless you already have Ruby installed)
+snap install ruby --classic # For WSL: apt-get install ruby-full
 npm i babel-minify
 sudo apt install webp
 bundle install --path vendor/bundle
