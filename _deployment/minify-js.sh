@@ -1,5 +1,5 @@
 #!/bin/bash
 for file in js/*.js; do
-  babel-minify "$file" -o "$file" --simplifyComparisons --simplify --mangle
+  ./node_modules/.bin/babel-minify "$file" -o "$file" --simplifyComparisons --simplify --mangle
   sed -i '1s/^/---\n---\n\n/' "$file"
 done
