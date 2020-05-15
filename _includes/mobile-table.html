@@ -7,6 +7,7 @@
 
     <div class="col-11 {% if website.tfa %}table-success{%else%}table-danger{%endif%}">
 
+      <div class="searchWords" style="display: none;">{{ website.name }}&nbsp;{{ website.url }}&nbsp;{% for item in website.tfa %} 2fa:{{ item }}{% endfor %}</div>
       <!-- Title -->
       <div class="site-title">
         <a class="site-name" href="{{ website.url }}">

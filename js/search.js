@@ -30,6 +30,9 @@ $(document).ready(function () {
           }
         });
       }
+    },
+    manualContentHandling: function(tag){
+      return $(tag).find('.searchWords').text();
     }
   });
 });

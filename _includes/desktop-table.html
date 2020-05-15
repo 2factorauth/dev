@@ -21,6 +21,7 @@
         <tr class="table-{% if website.tfa %}success{%else %}danger{% endif %}">
 
           <td>
+          <div class="searchWords" style="display: none;">{{ website.name }}&nbsp;{{ website.url }}&nbsp;{% for item in website.tfa %} 2fa:{{ item }}{% endfor %}</div>
             <div class="row no-gutters">
               <picture>
                 {% assign webp = website.img | replace: ".png", ".webp" %}
