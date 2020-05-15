@@ -15,12 +15,6 @@ $(document).ready(function () {
     $('.collapse').collapse('hide');
     showCategory(query.substring(1));
   }
-
-  // Fix the footer to bottom of viewport if body is less than viewport
-  if($('body').height() < $(window).height()){
-    $('.footer').css({position: 'absolute'});
-  }
-
 });
 
 // On category click
@@ -41,9 +35,21 @@ $('.cat').click(function () {
   }
 });
 
+
 // Show desktop & mobile tables
 function showCategory(category) {
   $(`#${category}-table`).collapse("show");
   $(`#${category}-mobile-table`).collapse("show");
   $(`#${category}`).addClass('active');
 }
+
+let resizeObserver = new ResizeObserver(() => {
+  // Fix the footer to bottom of viewport if body is less than viewport
+  if($('body').height() < $(window).height()){
+    $('.footer').css({position: 'absolute'});
+  }else{
+    $('.footer').css({position: 'static'});
+  }
+});
+
+resizeObserver.observe($('body')[0]);
