@@ -40,6 +40,12 @@ $(document).ready(function () {
           }
         });
 
+        if ($('.searchContainer').find(':visible').length == 0){
+          $('#no-results').show();
+        }else{
+          $('#no-results').hide();
+        }
+
       }
     },
     manualContentHandling: function(tag){

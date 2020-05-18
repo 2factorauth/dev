@@ -228,6 +228,11 @@ thead {
   }
 }
 
+#no-results {
+  display: none;
+  text-align: center;
+}
+
 .active {
   .category-icon {
     color: #fff;
