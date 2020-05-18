@@ -9,7 +9,9 @@ $(document).ready(function () {
         // Empty search value
         // Display everything. Close tables
         $('.cat').show();
+        $('.cat').removeClass('active');
         $('.category-table').removeClass('show');
+        $('.search-table-title').hide();
       } else {
         // Populated search field
 
@@ -29,6 +31,15 @@ $(document).ready(function () {
             $(this).parent().parent().removeClass('show');
           }
         });
+
+        $('.searchContainer.mobile-only').each(function(i){
+          if($(this).find('div.table-success:visible').length > 0 || $(this).find('div.table-failure:visible').length > 0){
+            $(this).find('.search-table-title').show();
+          }else{
+            $(this).find('.search-table-title').hide();
+          }
+        });
+
       }
     },
     manualContentHandling: function(tag){

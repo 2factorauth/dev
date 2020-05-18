@@ -5,6 +5,11 @@
   .category-table {
     width: 100%;
 
+    .search-table-title {
+      text-align: center;
+      display: none;
+      margin: 4vh 0 1vh 0;
+    }
     .table-success, .table-danger {
       margin: auto;
       padding: 18px;
