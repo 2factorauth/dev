@@ -33,7 +33,6 @@ mapping:
             pattern: /^(\w){1,15}$/
           "facebook":
             type: str
-            pattern: /^(\.?\w){3,50}$/
           "email_address":
             type: str
             pattern: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
