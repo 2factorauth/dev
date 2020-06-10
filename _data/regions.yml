@@ -1,23 +1,23 @@
-- id: de
-  name: Germany
-
-- id: se
-  name: Sweden
-
 - id: ar
   name: Argentina
-
-- id: us
-  name: United States
 
 - id: au
   name: Australia
 
-- id: gb
-  name: United Kindoms
+- id: de
+  name: Germany
+
+- id: nz
+  name: New Zealand
+
+- id: se
+  name: Sweden
 
 - id: nl
   name: The Netherlands
 
-- id: nz
-  name: New Zealand
+- id: gb
+  name: United Kindoms
+
+- id: us
+  name: United States
