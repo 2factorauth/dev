@@ -31,9 +31,7 @@ else
   request['Accept'] = 'application/json'
   response = https.request(request)
 
-  unless response.code == '200'
-    raise("Request failed. Check URL & API key. (#{response.code})")
-  end
+  raise("Request failed. Check URL & API key. (#{response.code})") unless response.code == '200'
 
   # Parse response
   body = JSON.parse(response.body)

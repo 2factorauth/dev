@@ -82,6 +82,7 @@ begin
     if sections != (sections.sort_by { |section| section['id'].downcase })
   schema = YAML.load_file('_deployment/tests/websites_schema.yml')
   validator = Kwalify::Validator.new(schema)
+  # rubocop:disable Metrics/BlockLength
   sections.each do |section|
     data_file = "_data/#{section['id']}.yml"
     data = YAML.load_file(data_file)
@@ -123,6 +124,7 @@ begin
       error("#{img} is not used", img)
     end
   end
+# rubocop:enable Metrics/BlockLength
 rescue Psych::SyntaxError => e
   puts "<------------ ERROR in a YAML file ------------>\n"
   puts "::error:: #{e}"

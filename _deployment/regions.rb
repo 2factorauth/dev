@@ -13,8 +13,8 @@ git_dir = Dir.glob('.git')
 FileUtils.cp_r(git_dir, "#{tmp_dir}/") unless File.exist?("#{tmp_dir}/.git")
 
 # Region loop
+# rubocop:disable Metrics/BlockLength
 regions.each do |region|
-
   dest_dir = "#{tmp_dir}/#{region['id']}"
   unless File.exist?(dest_dir)
     Dir.mkdir(dest_dir) unless File.exist?(dest_dir)
@@ -30,13 +30,11 @@ regions.each do |region|
 
     # Website loop
     websites.each do |website|
-
       if website['regions'].nil?
         section_array.push(website)
-      else
-        section_array.push(website) if website['regions'].include?(region['id'].to_s)
+        section_array.push(website)
+      elsif website['regions'].include?(region['id'].to_s)
       end
-
     end
     website_array = {websites: section_array}
     website_yaml = website_array.to_yaml.gsub("---\n:", '')
@@ -44,11 +42,13 @@ regions.each do |region|
     File.open("#{dest_dir}/_data/#{section['id']}.yml", 'w') do |file|
       file.write website_yaml
     end
-
   end
 
   out_dir = "#{Dir.pwd}/#{region['id']}"
   puts "Building #{region['id']}..."
+  # rubocop:disable Layout/LineLength
   puts `bundle exec jekyll build -s #{dest_dir} -d #{out_dir} --config _config.yml,_deployment/config-production.yml --baseurl #{region['id']}` # Add -V for debugging
+  # rubocop:enable Layout/LineLength
   puts "#{region['id']} built!"
 end
+# rubocop:enable Metrics/BlockLength
