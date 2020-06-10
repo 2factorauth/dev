@@ -10,25 +10,26 @@ task default: %w[proof verify jsonlint rubocop]
 task :build do
   config = Jekyll.configuration(
     'source' => './',
-    'destination' => './_site'
+    'destination' => './_site',
+    'disable_disk_cache' => true
   )
   site = Jekyll::Site.new(config)
   Jekyll::Commands::Build.build site, config
 end
 
 task :proof do
-  HTMLProofer.check_directory(
-    './_site',
-    assume_extension: true,
+  HTMLProofer.check_file(
+    './_site/index.html',
     check_html: true,
+    empty_alt_ignore: true,
     disable_external: true,
-    parallel: { in_threads: 5 }
+    checks_to_ignore: ['ScriptCheck']
   ).run
 end
 
 task proof_external: 'build' do
-  HTMLProofer.check_directory(
-    './_site', \
+  HTMLProofer.check_file(
+    './_site/index.html', \
     assume_extension: true, \
     check_html: true, \
     cache: { timeframe: '1w' }, \
@@ -43,7 +44,7 @@ end
 # rubocop:enable Layout/LineLength
 
 task :verify do
-  ruby '.tests/verify.rb'
+  ruby '_deployment/tests/verify.rb'
 end
 
 RuboCop::RakeTask.new
