@@ -1,10 +1,6 @@
 name: Rubocop
 
-on:
-  push:
-    paths: .tests/verify.rb
-  pull_request:
-    paths: .tests/verify.rb
+on: [push, pull_request]
 
 jobs:
   rubocop:
