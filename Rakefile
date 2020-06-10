@@ -37,11 +37,9 @@ task proof_external: 'build' do
   ).run
 end
 
-# rubocop:disable Layout/LineLength
 JsonLint::RakeTask.new do |t|
   t.paths = %w[_site/api/v1/data.json _site/api/v2/all.json _site/api/v2/tfa.json]
 end
-# rubocop:enable Layout/LineLength
 
 task :verify do
   ruby '_deployment/tests/verify.rb'

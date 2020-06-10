@@ -36,7 +36,7 @@ regions.each do |region|
       elsif website['regions'].include?(region['id'].to_s)
       end
     end
-    website_array = {websites: section_array}
+    website_array = { websites: section_array }
     website_yaml = website_array.to_yaml.gsub("---\n:", '')
 
     File.open("#{dest_dir}/_data/#{section['id']}.yml", 'w') do |file|

@@ -21,7 +21,7 @@ begin
   user = client.user(ARGV[0]).screen_name
 
 # Catch any exceptions
-rescue Exception => e
+rescue Twitter::Error => e
   var = if e.class == Twitter::Error::NotFound
           puts "Twitter user #{ARGV[0]} not found."
           exit 2
