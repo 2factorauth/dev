@@ -13,7 +13,9 @@ twitter: 2faorg
 social_image: https://repository-images.githubusercontent.com/17724730/63495880-b408-11e9-8cc4-03451aa4cc14
 theme_color: "#39CCCC"
 exclude:
+  - CNAME
   - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
   - EXCLUSION.md
   - Gemfile
   - Gemfile.lock

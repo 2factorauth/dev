@@ -7,17 +7,17 @@
 - id: de
   name: Germany
 
+- id: nl
+  name: Netherlands
+
 - id: nz
   name: New Zealand
 
 - id: se
   name: Sweden
 
-- id: nl
-  name: The Netherlands
-
 - id: gb
-  name: United Kindoms
+  name: United Kindom
 
 - id: us
   name: United States
